@@ -1,28 +1,30 @@
 
-if(confirm("채팅을 이용하시면서 일어나는 일은 개발자가 책임지지 않습니다.\n동의하십니까?") == false) {
-    history.back();
-    throw stop;
-
-  } else {
-    var name = prompt("채팅에서 사용할 닉네임을 입력하십시오.");
-    if (name == ""){
-      alert("빈 이름은 사용하실 수 없습니다.");
-      window.location.reload();
-      throw stop;
-    };
-
-    if (name == "null" || name==null) {
-      alert("이름을 입력하지 않으셨습니다.");
-      window.location.reload();
-      throw stop;
-    };
-
-  };
-
-name = name.substring(0,10);
-var ws = new WebSocket("ws://l3.kro.kr:8000");
+var ws = new WebSocket("input websocket address here");
 var tt = 0;
 var tn = 0;
+
+if(confirm("채팅을 이용하시면서 일어나는 일은 개발자가 책임지지 않습니다.\n동의하십니까?") == false) {
+  history.back();
+  throw stop;
+
+} else {
+  var name = prompt("채팅에서 사용할 닉네임을 입력하십시오.");
+  if (name == ""){
+    alert("빈 이름은 사용하실 수 없습니다.");
+    window.location.reload();
+    throw stop;
+  };
+
+  if (name == "null" || name==null) {
+    alert("이름을 입력하지 않으셨습니다.");
+    window.location.reload();
+    throw stop;
+  };
+
+};
+
+name = name.substring(0,10);
+
 
 ws.onopen = function() {
 ws.send('{"type":"name", "name":"' + name +'"}')
