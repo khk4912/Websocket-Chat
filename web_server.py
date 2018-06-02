@@ -66,7 +66,15 @@ application = tornado.web.Application([
 if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(8000)
-    print ('*** 웹소켓 서버가 시작됨.***')
+    print("""
+
+    ┬ ┬┌─┐┌┐ ┌─┐┌─┐┌─┐┬┌─┌─┐┌┬┐  ┌─┐┬ ┬┌─┐┌┬┐
+    │││├┤ ├┴┐└─┐│ ││  ├┴┐├┤  │───│  ├─┤├─┤ │ 
+    └┴┘└─┘└─┘└─┘└─┘└─┘┴ ┴└─┘ ┴   └─┘┴ ┴┴ ┴ ┴ 
+                Made By khk4912
+        채팅 서버가 성공적으로 실행되었습니다.
+      https://github.com/khk4912/Websocket-Chat
+    """)
     # tornado.ioloop.IOLoop.instance().add_timeout(datetime.timedelta(seconds=15), WSHandler.write_to_clients)
     tornado.ioloop.IOLoop.instance().start()
 
